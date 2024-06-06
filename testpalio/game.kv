@@ -1,0 +1,77 @@
+<MyGame>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    Label:
+        text: 'IL PALIO DI SIENA'
+        font_size: '24sp'
+        size_hint: (1, 0.1)
+        opacity: 0.8
+
+    Label:
+        text: 'Seleziona la tua contrada:'
+        opacity: 0.8
+    Spinner:
+        id: contrada_spinner
+        text: 'Aquila'
+        values: ['Aquila', 'Bruco', 'Chiocciola', 'Civetta', 'Drago',
+                 'Giraffa', 'Istrice', 'Leocorno', 'Lupa', 'Nicchio',
+                 'Oca', 'Onda', 'Pantera', 'Selva', 'Tartuca', 'Torre', 'Valdimontone']
+        opacity: 0.8
+    Label:
+        text: 'Seleziona il tuo cavallo:'
+        opacity: 0.8
+    Spinner:
+        id: cavallo_spinner
+        text: 'Occolè'
+        values: ['Occolè', 'Aramis', 'Sarò', 'Bellino', 'Margò',
+                 'Pathos', 'Rondone', 'Tiramisù', 'Zaù', 'Zorba',
+                 'Fulmine', 'Saetta', 'Lampo', 'Tempesta', 'Vento',
+                 'Tuono', 'Folgore']
+        opacity: 0.8
+    Button:
+        text: 'Inizia il Gioco'
+        on_press: root.start_game()
+        opacity: 0.8
+
+<RaceScreen>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    BoxLayout:
+        size_hint: (1, 0.1)
+        Label:
+            id: label
+            text: 'Tappa 1 di 16'
+            font_size: '24sp'
+            opacity: 1
+
+    ScrollView:
+        size_hint: (1, None)
+        height: 400
+        BoxLayout:
+            id: race_status_layout
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+
+    GridLayout:
+        id: card_layout_movement
+        cols: 3
+        size_hint_y: None
+        height: 50
+
+    GridLayout:
+        id: card_layout_special
+        cols: 3
+        size_hint_y: None
+        height: 50
+
+    Button:
+        id: play_button
+        text: 'Gioca le carte'
+        size_hint: (1, 0.2)
+        on_press: root.play_cards()
+        background_color: 1, 1, 1, 0.8
